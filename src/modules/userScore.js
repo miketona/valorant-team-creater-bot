@@ -98,7 +98,6 @@ function convertRankToNumber(rank) {
 }
 let convertedRankList = [];
 const rankUser = function (usersData) {
-  let usersScore = Number;
   usersData.forEach((userData) => {
     userData.rank = convertRankToNumber(userData.rank);
     convertedRankList.push(userData.rank);
