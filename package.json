@@ -1,0 +1,21 @@
+{
+  "name": "valorant",
+  "version": "0.0.1",
+  "description": "A Node JS bot that can create two evenly matched Valorant teams for a custom game",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./src/bot.js",
+    "dev": "nodemon ./src/bot.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.3.1",
+    "dotenv": "^8.2.0",
+    "cheerio": "^1.0.0-rc.10",
+    "fetch": "^1.1.0",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  }
+}
