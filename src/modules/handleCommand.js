@@ -1,5 +1,5 @@
+//parses input string 
 const handleCommand = function (message) {
-  // const [command, ...args] = message.content.trim().substring(1).split(/\s+/);
   let storedContent = message.content;
   const command = message.content.trim().substring(1).split(/\s+/)[0];
   let args = storedContent.split(command);
@@ -11,8 +11,8 @@ const handleCommand = function (message) {
     );
 
   if (command === "vcreate") {
-    const main = require("./valorant");
-    main(args[1].substring("1"), message);
+    const main = require("./valorant"); //contains all the logic for forming the valorant team
+    main(args[1].substring("1"), message); //send input to main function
   }
 };
 module.exports = handleCommand;

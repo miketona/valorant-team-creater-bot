@@ -1,6 +1,7 @@
-//list of all possible ranks
+//turns rank from string to integer.
 function convertRankToNumber(rank) {
   let conversion = null;
+  //list of all possible ranks
   switch (rank.toLowerCase()) {
     case "iron 1":
       conversion = 1;
@@ -87,7 +88,7 @@ function convertRankToNumber(rank) {
       conversion = 21;
 
       break;
-    case "valorant":
+    case "radiant":
       conversion = 22;
 
       break;

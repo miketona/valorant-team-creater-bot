@@ -1,5 +1,5 @@
 function sortTotal(teamOne, teamTwo) {
-  //inital configuring of the teams. Simply set both
+  //inital configuring of the teams. Simply sets both
   let teamOneTotal = teamOne.reduce((a, b) => a + b, 0);
   let teamTwoTotal = teamTwo.reduce((a, b) => a + b, 0);
   let largerTotal = null;
@@ -30,7 +30,10 @@ function sortTotal(teamOne, teamTwo) {
   return [teamOne, teamTwo];
 }
 
-//tests if swapping an element of the array will change the outcome without making a different one bigger
+/*
+tests if swapping an element of the array will change the outcome in a desired way.
+The goal here is to swap a number from the larger array with a number from the smaller array, while keeping the smaller array smaller.
+*/
 const totalTest = function (bigger, totalOne, totalTwo, arrOne, arrTwo) {
   let answer = false;
   if (bigger === 1) {
@@ -54,12 +57,6 @@ const totalTest = function (bigger, totalOne, totalTwo, arrOne, arrTwo) {
     for (let index = arrTwo.length - 1; index >= 0; index--) {
       const test = arrTwo[index];
       answer = runTest(test, totalTwo, totalOne, arrOne[0]);
-      //   if(typeof test !== 'undefined')
-      //   console.log(test);
-      //   console.log(totalOne);
-      //   console.log(totalTwo);
-      //   console.log(arrOne[0]);
-      //   console.log(answer);
       if (answer === true) {
         //modify the array
         arrTwo[index] = arrOne[0];
@@ -84,7 +81,6 @@ const runTest = function (
     BiggerTotal - smallestNumber > SmallerTotal + testNumber
   )
     return true;
-  //   console.log(testNumber, smallestNumber);
   return false;
 };
 

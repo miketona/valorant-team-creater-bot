@@ -3,6 +3,7 @@ const fetchData = require("./fetch");
 const userScore = require("./userScore");
 const sortTotal = require("./ranking-algorithm");
 let users = [];
+//Example obj:
 // let Mike = { name: "lazerbeem123456", id: "NA1" };
 // let Cass = { name: "kooks mcdaddy", id: "NA1" };
 // let Streling = { name: "smills2486", id: "3451" };
@@ -10,7 +11,6 @@ let users = [];
 // let Silas = { name: "MK14goSKRratt", id: "9991" };
 // let Toast = { name: "ToastKunUwU", id: "NA1" };
 
-// users.push(Mike, Cass, Tony, Streling, Toast, Silas);
 const main = async (userString, message) => {
   if (typeof userString !== "undefined") {
     console.log(userString);
@@ -18,18 +18,20 @@ const main = async (userString, message) => {
       let el = full.split("-");
       users.push({ name: el[0], id: el[1] });
     });
-    //gets the data of all the users
+    //if there is an even number of users. This stops the bot from trying to calculate uneven teams, such as 3v4s.
     if (users.length % 2 === 0) {
-      const userData = await fetchData(users, message);
+      //use a web scraper to fetch each users data
+      const userData = await fetchData(users, message); 
+      //get the rankings of each user from the returned data
       const rankings = userScore(userData);
+      //sort each user based on their ranks
       const sortedRanks = sortTotal(rankings[0], rankings[1]);
-      console.log(sortedRanks);
-      //give names back to sorted list based on rank (If two users have the same rank, the name could swap, but that doesn't really matter since they have the same rank)
+
       let teamOneString = "";
       let teamTwoString = "";
-      //if (userData.length === sortedRanks[1].length + sortedRanks[2].length) {
+
+      //create teams
       userData.forEach((user) => {
-        // el.forEach((user) => {
         console.log(user);
         const findEl = (element) => (element = user.rank);
         console.log(sortedRanks[0], sortedRanks[1], user.rank);
@@ -54,6 +56,7 @@ const main = async (userString, message) => {
         typeof teamOneString !== "undefined" &&
         typeof teamTwoString !== "undefined"
       )
+      //output message
         message.channel.send(
           "Team One:  " + teamOneString + "\nTeam Two: " + teamTwoString
         );
