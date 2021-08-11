@@ -1,4 +1,4 @@
-# valorantBot
+# Valorant team creater bot
 ```
 A Discord Bot which takes in an input of several users, fetches their KDA and Rank, and breaks them up into two evenly matched teams for custom games.
 ```
